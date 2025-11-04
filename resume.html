@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bryan Becker - Resume</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .resume-container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .download-section {
+            margin: 2rem 0;
+            padding: 1.5rem;
+        }
+
+        .download-button {
+            display: inline-flex;
+            align-items: center;
+            padding: 1rem 2rem;
+            background: #2a6ef5;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(42, 110, 245, 0.2);
+            margin-bottom: 2rem;
+        }
+
+        .download-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(42, 110, 245, 0.3);
+            background: #1c5cd4;
+        }
+
+        .download-button svg {
+            margin-right: 10px;
+        }
+
+        .resume-image {
+            max-width: 100%;
+            height: auto;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .resume-container {
+                padding: 0 1rem;
+            }
+
+            .download-button {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Menu -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="hobbies.html">Hobbies</a></li>
+            <li><a href="discover.html">Discover UMD</a></li>
+            <li><a href="resume.html">Resume</a></li>
+            <li><a href="career.html">Career</a></li>
+            <li><a href="game.html">Game</a></li>
+        </ul>
+    </nav>
+
+    <div class="resume-container">
+        <img src="CSS/Resume picture.png" alt="Bryan Becker's Resume" class="resume-image">
+        
+        <div class="download-section">
+            <a href="files/Resume (1).pdf" class="download-button" download>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 16L7 11H17L12 16Z" fill="white"/>
+                    <path d="M12 2V11M12 16L7 11H17L12 16ZM6 22H18" stroke="white" stroke-width="2"/>
+                </svg>
+                Download Resume PDF
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Bryan Becker. All rights reserved.</p>
+    </footer>
+</body>
+</html>

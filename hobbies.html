@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bryan Becker - Hobbies</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .hobbies-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .hobby-section {
+            margin-bottom: 4rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .hobby-section:hover {
+            transform: translateY(-5px);
+        }
+
+        .hobby-content {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .hobby-image {
+            flex: 0 0 40%;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .hobby-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .hobby-image img:hover {
+            transform: scale(1.05);
+        }
+
+        .hobby-text {
+            flex: 1;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin: 2rem 0;
+            font-size: 2.5rem;
+        }
+
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+
+        p {
+            line-height: 1.6;
+            color: #34495e;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .hobby-content {
+                flex-direction: column;
+            }
+
+            .hobby-image {
+                flex: 0 0 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Menu -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="hobbies.html">Hobbies</a></li>
+            <li><a href="discover.html">Discover UMD</a></li>
+            <li><a href="resume.html">Resume</a></li>
+            <li><a href="career.html">Career</a></li>
+            <li><a href="game.html">Game</a></li>
+        </ul>
+    </nav>
+
+    <div class="hobbies-container">
+        <h1>My Hobbies & Interests</h1>
+
+        <div class="hobby-section">
+            <div class="hobby-content">
+                <div class="hobby-image">
+                    <img src="images/Climb 2.JPG" alt="Rock Climbing at UMD">
+                </div>
+                <div class="hobby-text">
+                    <h2>Rock Climbing</h2>
+                    <p>I started rock climbing when I transferred to UMD last year and joined the rock climbing team! It is the perfect sport for me as it mixes intensity, endurance, explosiveness, and the chance to be outside. I have found a great community of climbers here at UMD, and it really helped me get acclimated to the school and make my first group of friends.</p>
+                    <p>Further, rock climbing introduced me to my current roommates, which opened a wide range of climbing opportunities outdoors. I am currently a captain on the rock climbing team, which has been a great experience so far!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hobby-section">
+            <div class="hobby-content">
+                <div class="hobby-image">
+                    <img src="images/Fishing 2.jpg" alt="Fishing Adventures">
+                </div>
+                <div class="hobby-text">
+                    <h2>Fishing</h2>
+                    <p>I have been fishing ever since my dad introduced me to it as a boy. Before I could drive, I would bike to my local lakes with two fishing rods in my baseball bag and spend all day fishing. Once or twice a summer, my family would drive up north to the Hayward area to fish, swim, tube, and enjoy nature (but mostly fish).</p>
+                    <p>I have continued to fish here in Duluth in local lakes like Fish Lake and Pike Lake, though Lake Superior is a bit much for my small fishing boat to handle.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hobby-section">
+            <div class="hobby-content">
+                <div class="hobby-image">
+                    <img src="images/Real hike 2.png" alt="Hiking Adventures">
+                </div>
+                <div class="hobby-text">
+                    <h2>Hiking</h2>
+                    <p>Another outdoor activity I love is hiking. Walking through a remote forest always makes me feel so in touch with nature and gives me a sense of relaxation similar to that of fishing. Hiking, however, is far more physically involved than fishing, so I can reap the benefits of exercise and time in nature.</p>
+                    <p>Duluth is the perfect place for hiking, whether it be on the superior hiking trail, or walking by the lake, there are plenty of options.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Bryan Becker. All rights reserved.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bryan Becker - Home</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .hero-section, .video-section, .hobbies-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 2rem auto;
+            flex-wrap: wrap;
+        }
+
+        .profile-image {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 50%;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.02);
+        }
+
+        .welcome-text {
+            max-width: 600px;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+
+        h1, h2 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .welcome-text p {
+            margin-bottom: 1.5rem;
+            color: #34495e;
+        }
+
+        main {
+            padding: 2rem;
+        }
+
+        .video-section {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            margin: 2rem auto;
+            padding: 3rem;
+            text-align: center;
+        }
+
+        .video-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .hobbies-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .hobby-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .hobby-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .hobby-card img {
+            width: 100%;
+            height: auto;
+            max-height: 400px;
+            object-fit: contain;
+        }
+
+        .hobby-card-content {
+            padding: 1.5rem;
+        }
+
+        .hobby-card h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .hobby-card p {
+            color: #34495e;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                flex-direction: column;
+                text-align: center;
+                padding: 1rem;
+            }
+
+            .profile-image {
+                width: 250px;
+                height: 250px;
+            }
+
+            .hobbies-section {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Menu (same on all pages) -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="hobbies.html">Hobbies</a></li>
+            <li><a href="discover.html">Discover UMD</a></li>
+            <li><a href="resume.html">Resume</a></li>
+            <li><a href="career.html">Career</a></li>
+            <li><a href="game.html">Game</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="hero-section">
+            <img src="images/Professional Headshot.jpg" alt="Bryan Becker Professional Headshot" class="profile-image">
+            <div class="welcome-text">
+                <h1>Welcome! I'm Bryan Becker</h1>
+                <p>
+                    I am a junior at the University of Minnesota Duluth. Recently, I made the decision to transition from Psychology to Finance to better align with my career interests. I am passionate about the financial markets and aim to pursue a career in banking or financial advising.
+                </p>
+                <p>
+                    I also enjoy a variety of outdoor activities such as rock climbing, fishing, swimming, and camping. My current goal is to gain acceptance into the Financial Markets Program at UMD, where I hope to gain hands-on experience in the stock market and build a strong foundation for my professional future.
+                </p>
+            </div>
+        </div>
+
+        <section class="video-section">
+            <h2>Welcome to My Page</h2>
+            <div class="video-container">
+                <video width="100%" controls poster="images/Professional Headshot.jpg">
+                    <!-- Add your video source here when you have one -->
+                    <p>Your browser doesn't support HTML5 video. Here's a <a href="#">link to the video</a> instead.</p>
+                </video>
+            </div>
+        </section>
+
+        <section class="hobbies-section">
+            <div class="hobby-card">
+                <img src="images/Climb.JPG" alt="Rock Climbing at UMD">
+                <div class="hobby-card-content">
+                    <h3>Rock Climbing</h3>
+                    <p>I joined the UMD Rock Climbing team after transferring last year, and it quickly became a perfect fit for me. The sport uniquely combines physical intensity, endurance, and explosiveness with the opportunity to train and compete outdoors.</p>
+                </div>
+            </div>
+
+            <div class="hobby-card">
+                <img src="images/Fish.JPG" alt="Fishing Adventure">
+                <div class="hobby-card-content">
+                    <h3>Fishing</h3>
+                    <p>I've enjoyed fishing since my dad first introduced me to it as a boy. It's a hobby that teaches me to slow down and appreciate the calm of nature—with the added excitement of catching something once in awhile!</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer (same on all pages) -->
+    <footer>
+        <p>&copy; 2025 Bryan Becker. All rights reserved.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
