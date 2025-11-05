@@ -109,10 +109,16 @@
         }
 
         @media (max-width: 768px) {
+            main {
+                padding: 1rem;
+            }
+
             .hero-section {
                 flex-direction: column;
                 text-align: center;
                 padding: 1rem;
+                margin: 1rem auto;
+                gap: 1.5rem;
             }
 
             .profile-image {
@@ -120,8 +126,74 @@
                 height: 250px;
             }
 
+            .welcome-text {
+                font-size: 1rem;
+            }
+
             .hobbies-section {
                 grid-template-columns: 1fr;
+                gap: 1.5rem;
+                padding: 1rem;
+            }
+
+            .video-section {
+                padding: 1.5rem;
+                margin: 1rem auto;
+            }
+
+            .hobby-card {
+                margin-bottom: 1rem;
+            }
+
+            .hobby-card-content {
+                padding: 1rem;
+            }
+
+            h1 {
+                font-size: 1.75rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .hobby-card h3 {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            main {
+                padding: 0.5rem;
+            }
+
+            .hero-section {
+                padding: 0.5rem;
+            }
+
+            .profile-image {
+                width: 200px;
+                height: 200px;
+            }
+
+            .video-section {
+                padding: 1rem;
+            }
+
+            .welcome-text {
+                font-size: 0.95rem;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            h2 {
+                font-size: 1.25rem;
+            }
+
+            .hobby-card h3 {
+                font-size: 1.1rem;
             }
         }
     </style>

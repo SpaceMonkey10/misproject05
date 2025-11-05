@@ -75,12 +75,50 @@
         }
 
         @media (max-width: 768px) {
+            .hobbies-container {
+                margin: 1rem auto;
+                padding: 0 1rem;
+            }
+
+            .hobby-section {
+                margin-bottom: 2rem;
+            }
+
             .hobby-content {
                 flex-direction: column;
+                padding: 1rem;
+                gap: 1rem;
             }
 
             .hobby-image {
                 flex: 0 0 100%;
+            }
+
+            .hobby-text {
+                text-align: center;
+            }
+
+            h1 {
+                font-size: 2rem;
+                margin: 1rem 0;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hobby-content {
+                padding: 0.5rem;
+            }
+
+            .hobby-section {
+                margin-bottom: 1.5rem;
             }
         }
     </style>
