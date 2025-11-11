@@ -58,13 +58,48 @@
             text-align: center;
         }
 
-        .video-container {
+        /* Cropped responsive video wrapper */
+        .video-wrapper {
             width: 100%;
             max-width: 600px;
             margin: 0 auto;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
             overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            background: #000;
+        }
+
+        .video-wrapper video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* crop to fit */
+            cursor: pointer;
+            display: block;
+        }
+
+        .play-overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0,0,0,0.25);
+            color: white;
+            cursor: pointer;
+            transition: opacity 0.2s ease;
+        }
+
+        .play-overlay svg {
+            width: 64px;
+            height: 64px;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.6));
+            opacity: 0.95;
         }
 
         .hobbies-section {
@@ -227,12 +262,107 @@
 
         <section class="video-section">
             <h2>Welcome to My Page</h2>
-            <div class="video-container">
-                <video width="100%" controls poster="images/Professional Headshot.jpg">
-                    <!-- Add your video source here when you have one -->
-                    <p>Your browser doesn't support HTML5 video. Here's a <a href="#">link to the video</a> instead.</p>
+            <div class="video-wrapper" aria-label="Welcome video">
+                <video id="welcomeVideo" preload="metadata" playsinline poster="images/Professional Headshot.jpg">
+                    <!-- Primary MP4 (added) -->
+                    <source src="css/Welcome Vid.2.mp4" type="video/mp4">
+                    <!-- Fallback MP4 then MOV -->
+                    <source src="css/Welcome vid.mp4" type="video/mp4">
+                    <source src="css/Welcome vid.MOV" type="video/quicktime">
+                    <p>Your browser doesn't support HTML5 video. You can <a href="CSS/Welcome vid.MOV" download>download the video</a> instead.</p>
                 </video>
+                <div class="play-overlay" id="welcomePlayOverlay" role="button" aria-label="Play video">
+                    <!-- Simple play icon -->
+                    <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <circle cx="32" cy="32" r="30" fill="rgba(0,0,0,0.5)" />
+                        <path d="M26 20 L46 32 L26 44 Z" fill="#fff"/>
+                    </svg>
+                </div>
+                <div id="videoError" style="display:none;padding:12px;color:#b00;background:#fff6f6;border-radius:8px;margin-top:12px;font-size:0.95rem;">
+                    Video could not be played. <a href="CSS/Welcome vid.MOV" download>Download the video</a> or convert it to MP4 (H.264) for broader browser support.
+                </div>
             </div>
+            <script>
+                (function(){
+                    const wrapper = document.querySelector('.video-wrapper');
+                    const video = document.getElementById('welcomeVideo');
+                    const overlay = document.getElementById('welcomePlayOverlay');
+                    const errorBox = document.getElementById('videoError');
+
+                    function showOverlay() {
+                        overlay.style.opacity = '1';
+                        overlay.style.pointerEvents = 'auto';
+                    }
+
+                    function hideOverlay() {
+                        overlay.style.opacity = '0';
+                        overlay.style.pointerEvents = 'none';
+                    }
+
+                    function showError(msg) {
+                        errorBox.style.display = 'block';
+                        errorBox.innerHTML = msg;
+                        overlay.style.display = 'none';
+                    }
+
+                    // If browser cannot play either MP4 or MOV, show error immediately
+                    const canPlayMp4 = !!video.canPlayType && video.canPlayType('video/mp4') !== '';
+                    const canPlayMov = !!video.canPlayType && video.canPlayType('video/quicktime') !== '';
+                    if (!canPlayMp4 && !canPlayMov) {
+                        showError('Your browser cannot play the available video formats. <a href="CSS/Welcome vid.MOV" download>Download the video</a> or convert it to MP4 (H.264).');
+                        return;
+                    }
+
+                    // Handle runtime errors and try mp4 fallback if available
+                    video.addEventListener('error', function(e) {
+                        // attempt to switch to mp4 version if the browser supports it
+                        if (canPlayMp4) {
+                            // If an mp4 source exists (file may not), try loading it
+                            video.src = 'CSS/Welcome vid.mp4';
+                            video.load();
+                            // try to play once sources switched
+                            video.play().catch(() => {
+                                showError('Video failed to load in the browser. <a href="CSS/Welcome vid.MOV" download>Download the video</a>.');
+                            });
+                            return;
+                        }
+                        showError('Video failed to load. <a href="CSS/Welcome vid.MOV" download>Download the video</a>.');
+                    });
+
+                    // Start with overlay visible
+                    showOverlay();
+
+                    // Toggle play on wrapper click
+                    wrapper.addEventListener('click', function (e) {
+                        // If video is paused, play and show controls; otherwise pause and show overlay
+                        if (video.paused) {
+                            video.play().then(() => {
+                                video.setAttribute('controls', '');
+                                hideOverlay();
+                            }).catch((err) => {
+                                console.warn('Play blocked or failed:', err);
+                                showError('Unable to play the video in this browser. <a href="CSS/Welcome vid.MOV" download>Download</a> the file instead.');
+                            });
+                        } else {
+                            video.pause();
+                            video.removeAttribute('controls');
+                            showOverlay();
+                        }
+                    });
+
+                    // If user uses native controls to pause/play, keep overlay in sync
+                    video.addEventListener('play', () => {
+                        video.setAttribute('controls', '');
+                        hideOverlay();
+                        errorBox.style.display = 'none';
+                    });
+
+                    video.addEventListener('pause', () => {
+                        video.removeAttribute('controls');
+                        showOverlay();
+                    });
+                })();
+            </script>
         </section>
 
         <section class="hobbies-section">
@@ -248,7 +378,7 @@
                 <img src="images/Fish.JPG" alt="Fishing Adventure">
                 <div class="hobby-card-content">
                     <h3>Fishing</h3>
-                    <p>I've enjoyed fishing since my dad first introduced me to it as a boy. It's a hobby that teaches me to slow down and appreciate the calm of nature—with the added excitement of catching something once in awhile!</p>
+                    <p>I've enjoyed fishing since my dad first introduced me to it as a boy. It's a hobby that teaches me to slow down and appreciate the calm of nature—with the added excitement of catching something once in a while!</p>
                 </div>
             </div>
         </section>
