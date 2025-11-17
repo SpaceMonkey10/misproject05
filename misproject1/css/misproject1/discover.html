@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bryan Becker - Discover UMD</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .video-section {
+            margin: 2rem 0;
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 1.5rem auto;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .video-container video {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin: 2rem 0;
+        }
+
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            line-height: 1.6;
+            color: #34495e;
+            margin-bottom: 1.5rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #f8f9fa;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .video-section {
+                margin: 1rem 0;
+                padding: 1rem;
+            }
+
+            .video-container {
+                margin: 1rem auto;
+            }
+
+            section {
+                padding: 0 0.75rem;
+            }
+
+            h1 {
+                font-size: 1.75rem;
+                margin: 1.5rem 0;
+            }
+
+            h2 {
+                font-size: 1.25rem;
+            }
+
+            p {
+                font-size: 1rem;
+                margin-bottom: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .video-section {
+                padding: 0.75rem;
+            }
+
+            .video-container {
+                margin: 0.75rem auto;
+            }
+
+            section {
+                padding: 0 0.5rem;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+                margin: 1rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+<nav>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="hobbies.html">Hobbies</a></li>
+<li><a href="discover.html">Discover UMD</a></li>
+<li><a href="resume.html">Resume</a></li>
+<li><a href="career.html">Career</a></li>
+<li><a href="game.html">Game</a></li>
+</ul>
+</nav>
+<main>
+    <h1>Discover UMD</h1>
+
+    <section>
+        <h2>Your Reasons for Choosing University of Minnesota Duluth</h2>
+        <p>I chose UMD because of the countless outdoor activities in proximity to campus, so I could go to school with my best friend, and so I could be closer to home.</p>
+    </section>
+
+    <section>
+        <h2>Things You Enjoy About the City and Area</h2>
+        <p>I love living so close to Lake Superior. Swimming in the lake during the summer is so fun! Canal Park and the West End of Duluth are also personal highlights. Specifically, I really like all the coffee shops in Duluth; there is healthy competition that pushes each business to do better.</p>
+    </section>
+
+    <section class="video-section">
+        <h2>30-Second UMD Marketing Video</h2>
+        <div class="video-container">
+            <video controls width="100%" playsinline>
+                <source src="CSS/Marketing vid.MOV" type="video/mp4">
+                <source src="CSS/Marketing vid.MOV" type="video/quicktime">
+                <p>Your browser does not support the video tag. You can <a href="CSS/Marketing vid.MOV" download>download the video</a> instead.</p>
+            </video>
+        </div>
+        <script>
+            // Add event listeners to handle video loading and errors
+            document.addEventListener('DOMContentLoaded', function() {
+                const video = document.querySelector('video');
+                
+                video.addEventListener('error', function(e) {
+                    console.error('Error loading video:', e);
+                });
+
+                // Ensure video loads and is playable
+                video.load();
+            });
+        </script>
+    </section>
+
+    <section>
+        <h2>Campus Experiences</h2>
+        <p>When I transferred to UMD, I initially regretted my decision. Thankfully, my experiences here have convinced me otherwise. Joining the UMD Climbing Team has provided me with a great sense of community and allowed me to form connections both in and out of school. I have also participated in outdoor climbing trips, which initially got me interested in the Climbing Team.</p>
+    </section>
+
+    <p>5 | MIS 2201 Semester Project Guide | UMD Fall 2025</p>
+</main>
+<footer>
+<p>&copy; 2025 Bryan Becker. All rights reserved.</p>
+</footer>
+<script src="js/script.js"></script>
+</body>
+</html>
