@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bryan Becker - Home</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .hero-section, .video-section, .hobbies-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 2rem auto;
+            flex-wrap: wrap;
+        }
+
+        .profile-image {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 50%;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.02);
+        }
+
+        .welcome-text {
+            max-width: 600px;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+
+        h1, h2 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .welcome-text p {
+            margin-bottom: 1.5rem;
+            color: #34495e;
+        }
+
+        main {
+            padding: 2rem;
+        }
+
+        .video-section {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            margin: 2rem auto;
+            padding: 3rem;
+            text-align: center;
+        }
+
+        /* Cropped responsive video wrapper */
+        .video-wrapper {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            background: #000;
+        }
+
+        .video-wrapper video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* crop to fit */
+            cursor: pointer;
+            display: block;
+        }
+
+        .play-overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0,0,0,0.25);
+            color: white;
+            cursor: pointer;
+            transition: opacity 0.2s ease;
+        }
+
+        .play-overlay svg {
+            width: 64px;
+            height: 64px;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.6));
+            opacity: 0.95;
+        }
+
+        .hobbies-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .hobby-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .hobby-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .hobby-card img {
+            width: 100%;
+            height: auto;
+            max-height: 400px;
+            object-fit: contain;
+        }
+
+        .hobby-card-content {
+            padding: 1.5rem;
+        }
+
+        .hobby-card h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .hobby-card p {
+            color: #34495e;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            main {
+                padding: 1rem;
+            }
+
+            .hero-section {
+                flex-direction: column;
+                text-align: center;
+                padding: 1rem;
+                margin: 1rem auto;
+                gap: 1.5rem;
+            }
+
+            .profile-image {
+                width: 250px;
+                height: 250px;
+            }
+
+            .welcome-text {
+                font-size: 1rem;
+            }
+
+            .hobbies-section {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                padding: 1rem;
+            }
+
+            .video-section {
+                padding: 1.5rem;
+                margin: 1rem auto;
+            }
+
+            .hobby-card {
+                margin-bottom: 1rem;
+            }
+
+            .hobby-card-content {
+                padding: 1rem;
+            }
+
+            h1 {
+                font-size: 1.75rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .hobby-card h3 {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            main {
+                padding: 0.5rem;
+            }
+
+            .hero-section {
+                padding: 0.5rem;
+            }
+
+            .profile-image {
+                width: 200px;
+                height: 200px;
+            }
+
+            .video-section {
+                padding: 1rem;
+            }
+
+            .welcome-text {
+                font-size: 0.95rem;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            h2 {
+                font-size: 1.25rem;
+            }
+
+            .hobby-card h3 {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Menu (same on all pages) -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="hobbies.html">Hobbies</a></li>
+            <li><a href="discover.html">Discover UMD</a></li>
+            <li><a href="resume.html">Resume</a></li>
+            <li><a href="career.html">Career</a></li>
+            <li><a href="game.html">Game</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="hero-section">
+            <img src="images/Professional Headshot.jpg" alt="Bryan Becker Professional Headshot" class="profile-image">
+            <div class="welcome-text">
+                <h1>Welcome! I'm Bryan Becker</h1>
+                <p>
+                    I am a junior at the University of Minnesota Duluth. Recently, I made the decision to transition from Psychology to Finance to better align with my career interests. I am passionate about the financial markets and aim to pursue a career in banking or financial advising.
+                </p>
+                <p>
+                    I also enjoy a variety of outdoor activities such as rock climbing, fishing, swimming, and camping. My current goal is to gain acceptance into the Financial Markets Program at UMD, where I hope to gain hands-on experience in the stock market and build a strong foundation for my professional future.
+                </p>
+            </div>
+        </div>
+
+        <section class="video-section">
+            <h2>Welcome to My Page</h2>
+            <div class="video-wrapper" aria-label="Welcome video">
+                <video id="welcomeVideo" preload="metadata" playsinline poster="images/Professional Headshot.jpg">
+                    <!-- Primary MP4 (added) -->
+                    <source src="videos/Welcome Vid.2.mp4" type="video/mp4">
+                    <!-- Fallback MP4 then MOV -->
+                    <source src="videos/Welcome Vid.2.mp4" type="video/mp4">
+                    <source src="css/Welcome vid.MOV" type="video/quicktime">
+                    <p>Your browser doesn't support HTML5 video. You can <a href="videos/Welcome Vid.2.mp4" download>download the video</a> instead.</p>
+                </video>
+                <div class="play-overlay" id="welcomePlayOverlay" role="button" aria-label="Play video">
+                    <!-- Simple play icon -->
+                    <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <circle cx="32" cy="32" r="30" fill="rgba(0,0,0,0.5)" />
+                        <path d="M26 20 L46 32 L26 44 Z" fill="#fff"/>
+                    </svg>
+                </div>
+                <div id="videoError" style="display:none;padding:12px;color:#b00;background:#fff6f6;border-radius:8px;margin-top:12px;font-size:0.95rem;">
+                    Video could not be played. <a href="CSS/Welcome vid.MOV" download>Download the video</a> or convert it to MP4 (H.264) for broader browser support.
+                </div>
+            </div>
+            <script>
+                (function(){
+                    const wrapper = document.querySelector('.video-wrapper');
+                    const video = document.getElementById('welcomeVideo');
+                    const overlay = document.getElementById('welcomePlayOverlay');
+                    const errorBox = document.getElementById('videoError');
+
+                    function showOverlay() {
+                        overlay.style.opacity = '1';
+                        overlay.style.pointerEvents = 'auto';
+                    }
+
+                    function hideOverlay() {
+                        overlay.style.opacity = '0';
+                        overlay.style.pointerEvents = 'none';
+                    }
+
+                    function showError(msg) {
+                        errorBox.style.display = 'block';
+                        errorBox.innerHTML = msg;
+                        overlay.style.display = 'none';
+                    }
+
+                    // If browser cannot play either MP4 or MOV, show error immediately
+                    const canPlayMp4 = !!video.canPlayType && video.canPlayType('video/mp4') !== '';
+                    const canPlayMov = !!video.canPlayType && video.canPlayType('video/quicktime') !== '';
+                    if (!canPlayMp4 && !canPlayMov) {
+                        showError('Your browser cannot play the available video formats. <a href="CSS/Welcome vid.MOV" download>Download the video</a> or convert it to MP4 (H.264).');
+                        return;
+                    }
+
+                    // Handle runtime errors and try mp4 fallback if available
+                    video.addEventListener('error', function(e) {
+                        // attempt to switch to mp4 version if the browser supports it
+                        if (canPlayMp4) {
+                            // If an mp4 source exists (file may not), try loading it
+                            video.src = 'CSS/Welcome vid.mp4';
+                            video.load();
+                            // try to play once sources switched
+                            video.play().catch(() => {
+                                showError('Video failed to load in the browser. <a href="CSS/Welcome vid.MOV" download>Download the video</a>.');
+                            });
+                            return;
+                        }
+                        showError('Video failed to load. <a href="CSS/Welcome vid.MOV" download>Download the video</a>.');
+                    });
+
+                    // Start with overlay visible
+                    showOverlay();
+
+                    // Toggle play on wrapper click
+                    wrapper.addEventListener('click', function (e) {
+                        // If video is paused, play and show controls; otherwise pause and show overlay
+                        if (video.paused) {
+                            video.play().then(() => {
+                                video.setAttribute('controls', '');
+                                hideOverlay();
+                            }).catch((err) => {
+                                console.warn('Play blocked or failed:', err);
+                                showError('Unable to play the video in this browser. <a href="CSS/Welcome vid.MOV" download>Download</a> the file instead.');
+                            });
+                        } else {
+                            video.pause();
+                            video.removeAttribute('controls');
+                            showOverlay();
+                        }
+                    });
+
+                    // If user uses native controls to pause/play, keep overlay in sync
+                    video.addEventListener('play', () => {
+                        video.setAttribute('controls', '');
+                        hideOverlay();
+                        errorBox.style.display = 'none';
+                    });
+
+                    video.addEventListener('pause', () => {
+                        video.removeAttribute('controls');
+                        showOverlay();
+                    });
+                })();
+            </script>
+        </section>
+
+        <section class="hobbies-section">
+            <div class="hobby-card">
+                <img src="images/Climb.JPG" alt="Rock Climbing at UMD">
+                <div class="hobby-card-content">
+                    <h3>Rock Climbing</h3>
+                    <p>I joined the UMD Rock Climbing team after transferring last year, and it quickly became a perfect fit for me. The sport uniquely combines physical intensity, endurance, and explosiveness with the opportunity to train and compete outdoors.</p>
+                </div>
+            </div>
+
+            <div class="hobby-card">
+                <img src="images/Fish.JPG" alt="Fishing Adventure">
+                <div class="hobby-card-content">
+                    <h3>Fishing</h3>
+                    <p>I've enjoyed fishing since my dad first introduced me to it as a boy. It's a hobby that teaches me to slow down and appreciate the calm of nature—with the added excitement of catching something once in a while!</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer (same on all pages) -->
+    <footer>
+        <p>&copy; 2025 Bryan Becker. All rights reserved.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
